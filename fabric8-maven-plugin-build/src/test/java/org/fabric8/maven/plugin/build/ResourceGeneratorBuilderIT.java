@@ -55,6 +55,7 @@ public class ResourceGeneratorBuilderIT {
 
         // then
         final File resources = Paths.get(rootPath, "target/classes/META-INF/fabric8").toFile();
+        //TODO add jkube
         final File build = Paths.get(rootPath, "target/docker").toFile();
 
         assertThat(resources.listFiles()).isNotEmpty();

@@ -113,6 +113,8 @@
         <plugin>
           <groupId>io.fabric8</groupId>
           <artifactId>fabric8-maven-plugin</artifactId>
+<!--          <groupId>org.eclipse.jkube</groupId>-->
+<!--          <artifactId>openshift-maven-plugin</artifactId>-->
           <executions>
             <execution>
               <id>fmp</id>

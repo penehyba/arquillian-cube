@@ -1,8 +1,5 @@
 package org.arquillian.cube.kubernetes.impl;
 
-import io.fabric8.kubernetes.clnt.v4_10.ConfigBuilder;
-import io.fabric8.kubernetes.clnt.v4_10.utils.Utils;
-import io.sundr.builder.annotations.Buildable;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +13,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 import java.util.regex.Pattern;
+
+import io.fabric8.kubernetes.clnt.v4_10.ConfigBuilder;
+import io.fabric8.kubernetes.clnt.v4_10.utils.Utils;
+import io.sundr.builder.annotations.Buildable;
 import org.arquillian.cube.impl.util.Strings;
 import org.arquillian.cube.impl.util.SystemEnvironmentVariables;
 import org.arquillian.cube.kubernetes.api.Configuration;
@@ -272,7 +273,7 @@ public class DefaultConfiguration implements Configuration {
         }
 
         // This is useful to get resource under META-INF directory
-        String[] resourceNamePrefix = new String[] {"META-INF/fabric8/", "META-INF/fabric8/"};
+        String[] resourceNamePrefix = new String[] {"META-INF/fabric8/", "META-INF/jkube/"};
 
         for (String resource : resourceNamePrefix) {
             String fullResourceName = resource + resourceName;

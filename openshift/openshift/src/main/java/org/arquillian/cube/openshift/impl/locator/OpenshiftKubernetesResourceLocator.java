@@ -19,7 +19,8 @@ import java.util.List;
 public class OpenshiftKubernetesResourceLocator extends DefaultKubernetesResourceLocator {
 
     private static final String[] RESOURCE_NAMES =
-        new String[] {"openshift", "META-INF/fabric8/openshift", "kubernetes", "META-INF/fabric8/kubernetes"};
+        new String[] {"openshift", "META-INF/fabric8/openshift", "META-INF/jkube/openshift",
+            "kubernetes", "META-INF/fabric8/kubernetes", "META-INF/jkube/kubernetes"};
 
     @Inject
     protected Instance<KubernetesClient> client;

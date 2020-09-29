@@ -18,7 +18,7 @@ import static org.arquillian.cube.kubernetes.impl.utils.FileUtils.isResourceAllo
 public class DefaultKubernetesResourceLocator implements KubernetesResourceLocator {
 
     private static final String ROOT = "/";
-    private static final String[] RESOURCE_NAMES = new String[] {"kubernetes", "META-INF/fabric8/kubernetes"};
+    private static final String[] RESOURCE_NAMES = new String[] {"kubernetes", "META-INF/fabric8/kubernetes", "META-INF/jkube/kubernetes"};
     private static final String[] ALLOWED_SUFFIXES = {".json", ".yml", ".yaml"};
 
     @Override

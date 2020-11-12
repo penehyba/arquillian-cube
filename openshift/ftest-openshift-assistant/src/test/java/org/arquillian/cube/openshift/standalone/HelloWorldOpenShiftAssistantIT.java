@@ -15,8 +15,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.kubernetes.clnt.v4_10.internal.readiness.Readiness;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.kubernetes.clnt.v4_12.internal.readiness.Readiness;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

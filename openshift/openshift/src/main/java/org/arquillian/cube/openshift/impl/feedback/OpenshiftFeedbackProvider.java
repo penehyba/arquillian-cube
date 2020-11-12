@@ -1,16 +1,16 @@
 package org.arquillian.cube.openshift.impl.feedback;
 
-import io.fabric8.kubernetes.api.model.v4_10.Endpoints;
-import io.fabric8.kubernetes.api.model.v4_10.HasMetadata;
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.kubernetes.api.model.v4_10.PodList;
-import io.fabric8.kubernetes.api.model.v4_10.PodListBuilder;
-import io.fabric8.kubernetes.api.model.v4_10.ReplicationController;
-import io.fabric8.kubernetes.api.model.v4_10.Service;
-import io.fabric8.kubernetes.api.model.v4_10.apps.Deployment;
-import io.fabric8.kubernetes.api.model.v4_10.apps.ReplicaSet;
-import io.fabric8.kubernetes.clnt.v4_10.KubernetesClient;
-import io.fabric8.openshift.api.model.v4_10.DeploymentConfig;
+import io.fabric8.kubernetes.api.model.v4_12.Endpoints;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.kubernetes.api.model.v4_12.PodList;
+import io.fabric8.kubernetes.api.model.v4_12.PodListBuilder;
+import io.fabric8.kubernetes.api.model.v4_12.ReplicationController;
+import io.fabric8.kubernetes.api.model.v4_12.Service;
+import io.fabric8.kubernetes.api.model.v4_12.apps.Deployment;
+import io.fabric8.kubernetes.api.model.v4_12.apps.ReplicaSet;
+import io.fabric8.kubernetes.clnt.v4_12.KubernetesClient;
+import io.fabric8.openshift.api.model.v4_12.DeploymentConfig;
 import org.arquillian.cube.kubernetes.api.FeedbackProvider;
 import org.arquillian.cube.kubernetes.api.Logger;
 import org.arquillian.cube.kubernetes.api.WithToImmutable;

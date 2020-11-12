@@ -1,8 +1,8 @@
 package org.arquillian.cube.openshift.impl.model;
 
-import io.fabric8.kubernetes.api.model.v4_10.Container;
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.openshift.api.model.v4_10.DeploymentConfig;
+import io.fabric8.kubernetes.api.model.v4_12.Container;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.openshift.api.model.v4_12.DeploymentConfig;
 import java.util.ArrayList;
 import java.util.List;
 

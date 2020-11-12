@@ -1,22 +1,22 @@
 package org.arquillian.cube.kubernetes.impl.feedback;
 
-import io.fabric8.kubernetes.api.model.v4_10.Container;
-import io.fabric8.kubernetes.api.model.v4_10.Endpoints;
-import io.fabric8.kubernetes.api.model.v4_10.Event;
-import io.fabric8.kubernetes.api.model.v4_10.EventList;
-import io.fabric8.kubernetes.api.model.v4_10.HasMetadata;
-import io.fabric8.kubernetes.api.model.v4_10.LabelSelectorRequirement;
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.kubernetes.api.model.v4_10.PodList;
-import io.fabric8.kubernetes.api.model.v4_10.PodListBuilder;
-import io.fabric8.kubernetes.api.model.v4_10.ReplicationController;
-import io.fabric8.kubernetes.api.model.v4_10.Service;
-import io.fabric8.kubernetes.api.model.v4_10.apps.Deployment;
-import io.fabric8.kubernetes.api.model.v4_10.apps.ReplicaSet;
-import io.fabric8.kubernetes.clnt.v4_10.KubernetesClient;
-import io.fabric8.kubernetes.clnt.v4_10.Watch;
-import io.fabric8.kubernetes.clnt.v4_10.Watcher;
-import io.fabric8.kubernetes.clnt.v4_10.dsl.FilterWatchListDeletable;
+import io.fabric8.kubernetes.api.model.v4_12.Container;
+import io.fabric8.kubernetes.api.model.v4_12.DoneablePod;
+import io.fabric8.kubernetes.api.model.v4_12.Endpoints;
+import io.fabric8.kubernetes.api.model.v4_12.Event;
+import io.fabric8.kubernetes.api.model.v4_12.EventList;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.api.model.v4_12.LabelSelectorRequirement;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.kubernetes.api.model.v4_12.PodList;
+import io.fabric8.kubernetes.api.model.v4_12.PodListBuilder;
+import io.fabric8.kubernetes.api.model.v4_12.ReplicationController;
+import io.fabric8.kubernetes.api.model.v4_12.Service;
+import io.fabric8.kubernetes.api.model.v4_12.apps.Deployment;
+import io.fabric8.kubernetes.api.model.v4_12.apps.ReplicaSet;
+import io.fabric8.kubernetes.clnt.v4_12.KubernetesClient;
+import io.fabric8.kubernetes.clnt.v4_12.dsl.NonNamespaceOperation;
+import io.fabric8.kubernetes.clnt.v4_12.dsl.PodResource;
 import java.util.HashMap;
 import java.util.Map;
 import org.arquillian.cube.kubernetes.api.FeedbackProvider;
@@ -177,7 +177,7 @@ public class DefaultFeedbackProvider implements FeedbackProvider {
          *     The {@link Deployment}
          */
         public PodList findMatching(Deployment deployment) {
-            FilterWatchListDeletable<Pod, PodList, Boolean, Watch, Watcher<Pod>> podLister =
+            NonNamespaceOperation<Pod, PodList, DoneablePod, PodResource<Pod, DoneablePod>> podLister =
                 client.pods().inNamespace(deployment.getMetadata().getNamespace());
             if (deployment.getSpec().getSelector().getMatchLabels() != null) {
                 podLister.withLabels(deployment.getSpec().getSelector().getMatchLabels());
@@ -210,7 +210,7 @@ public class DefaultFeedbackProvider implements FeedbackProvider {
          *     The {@link ReplicaSet}
          */
         public PodList findMatching(ReplicaSet replicaSet) {
-            FilterWatchListDeletable<Pod, PodList, Boolean, Watch, Watcher<Pod>> podLister =
+            NonNamespaceOperation<Pod, PodList, DoneablePod, PodResource<Pod, DoneablePod>> podLister =
                 client.pods().inNamespace(replicaSet.getMetadata().getNamespace());
             if (replicaSet.getSpec().getSelector().getMatchLabels() != null) {
                 podLister.withLabels(replicaSet.getSpec().getSelector().getMatchLabels());

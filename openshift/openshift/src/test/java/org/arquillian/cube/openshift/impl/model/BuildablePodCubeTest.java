@@ -1,10 +1,10 @@
 package org.arquillian.cube.openshift.impl.model;
 
-import io.fabric8.kubernetes.api.model.v4_10.ObjectMeta;
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.kubernetes.api.model.v4_10.PodSpec;
-import io.fabric8.openshift.api.model.v4_10.RouteList;
-import io.fabric8.openshift.clnt.v4_10.dsl.internal.RouteOperationsImpl;
+import io.fabric8.kubernetes.api.model.v4_12.ObjectMeta;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.kubernetes.api.model.v4_12.PodSpec;
+import io.fabric8.openshift.api.model.v4_12.RouteList;
+import io.fabric8.openshift.clnt.v4_12.dsl.internal.RouteOperationsImpl;
 import org.arquillian.cube.openshift.impl.client.CubeOpenShiftConfiguration;
 import org.arquillian.cube.openshift.impl.client.OpenShiftClient;
 import org.arquillian.cube.spi.event.lifecycle.AfterCreate;
@@ -39,7 +39,7 @@ public class BuildablePodCubeTest extends AbstractManagerTestBase {
     private OpenShiftClient openShiftClient;
 
     @Mock
-    private io.fabric8.openshift.clnt.v4_10.OpenShiftClient openShiftClientExt;
+    private io.fabric8.openshift.clnt.v4_12.OpenShiftClient openShiftClientExt;
 
     @Mock
     private RouteOperationsImpl routeOperations;

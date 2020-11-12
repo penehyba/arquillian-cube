@@ -1,9 +1,9 @@
 package org.arquillian.cube.openshift.impl.requirement;
 
-import io.fabric8.kubernetes.clnt.v4_10.DefaultKubernetesClient;
-import io.fabric8.kubernetes.clnt.v4_10.KubernetesClient;
-import io.fabric8.kubernetes.clnt.v4_10.utils.URLUtils;
-import io.fabric8.openshift.clnt.v4_10.OpenShiftClient;
+import io.fabric8.kubernetes.clnt.v4_12.DefaultKubernetesClient;
+import io.fabric8.kubernetes.clnt.v4_12.KubernetesClient;
+import io.fabric8.kubernetes.clnt.v4_12.utils.URLUtils;
+import io.fabric8.openshift.clnt.v4_12.OpenShiftClient;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;

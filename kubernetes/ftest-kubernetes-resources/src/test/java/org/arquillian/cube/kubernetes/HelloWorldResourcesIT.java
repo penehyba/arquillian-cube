@@ -1,9 +1,9 @@
 package org.arquillian.cube.kubernetes;
 
-import io.fabric8.kubernetes.api.model.v4_10.ObjectMeta;
-import io.fabric8.kubernetes.api.model.v4_10.Service;
-import io.fabric8.kubernetes.api.model.v4_10.ServiceList;
-import io.fabric8.kubernetes.clnt.v4_10.KubernetesClient;
+import io.fabric8.kubernetes.api.model.v4_12.ObjectMeta;
+import io.fabric8.kubernetes.api.model.v4_12.Service;
+import io.fabric8.kubernetes.api.model.v4_12.ServiceList;
+import io.fabric8.kubernetes.clnt.v4_12.KubernetesClient;
 import org.arquillian.cube.kubernetes.annotations.KubernetesResource;
 import org.arquillian.cube.kubernetes.impl.requirement.RequiresKubernetes;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;

@@ -2,14 +2,14 @@ package org.arquillian.cube.kubernetes.impl.enricher.external;
 
 import java.lang.annotation.Annotation;
 
-import io.fabric8.kubernetes.api.model.v4_10.apps.DeploymentList;
+import io.fabric8.kubernetes.api.model.v4_12.apps.DeploymentList;
 
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.arquillian.test.spi.enricher.resource.ResourceProvider;
 
 /**
  * A {@link ResourceProvider} for {@link DeploymentList}.
- * It refers to deplotments that have been created during the current session.
+ * It refers to deployments that have been created during the current session.
  */
 public class DeploymentListResourceProvider extends org.arquillian.cube.kubernetes.impl.enricher.internal.DeploymentListResourceProvider {
 

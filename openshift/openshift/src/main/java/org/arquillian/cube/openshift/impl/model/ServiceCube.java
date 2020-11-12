@@ -1,7 +1,7 @@
 package org.arquillian.cube.openshift.impl.model;
 
-import io.fabric8.kubernetes.api.model.v4_10.Service;
-import io.fabric8.kubernetes.api.model.v4_10.ServicePort;
+import io.fabric8.kubernetes.api.model.v4_12.Service;
+import io.fabric8.kubernetes.api.model.v4_12.ServicePort;
 import java.net.InetAddress;
 import java.util.Collections;
 import java.util.HashMap;

@@ -1,11 +1,11 @@
 package org.arquillian.cube.kubernetes.impl.visitor;
 
-import io.fabric8.kubernetes.api.builder.v4_10.TypedVisitor;
-import io.fabric8.kubernetes.api.builder.v4_10.VisitableBuilder;
-import io.fabric8.kubernetes.api.builder.v4_10.Visitor;
-import io.fabric8.kubernetes.api.model.v4_10.HasMetadata;
-import io.fabric8.kubernetes.api.model.v4_10.ObjectMetaBuilder;
-import io.fabric8.kubernetes.clnt.v4_10.HasMetadataVisitiableBuilder;
+import io.fabric8.kubernetes.api.builder.v4_12.TypedVisitor;
+import io.fabric8.kubernetes.api.builder.v4_12.VisitableBuilder;
+import io.fabric8.kubernetes.api.builder.v4_12.Visitor;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.api.model.v4_12.ObjectMetaBuilder;
+import io.fabric8.kubernetes.clnt.v4_12.HasMetadataVisitiableBuilder;
 import org.arquillian.cube.kubernetes.api.Configuration;
 import org.jboss.arquillian.core.api.Instance;
 import org.jboss.arquillian.core.api.annotation.Inject;

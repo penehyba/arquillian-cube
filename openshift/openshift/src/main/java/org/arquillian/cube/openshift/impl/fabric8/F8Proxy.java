@@ -23,13 +23,13 @@
 
 package org.arquillian.cube.openshift.impl.fabric8;
 
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
-import io.fabric8.kubernetes.api.model.v4_10.PodCondition;
-import io.fabric8.kubernetes.api.model.v4_10.PodStatus;
-import io.fabric8.kubernetes.clnt.v4_10.Adapters;
-import io.fabric8.kubernetes.clnt.v4_10.internal.SSLUtils;
-import io.fabric8.openshift.clnt.v4_10.NamespacedOpenShiftClient;
-import io.fabric8.openshift.clnt.v4_10.OpenShiftClient;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
+import io.fabric8.kubernetes.api.model.v4_12.PodCondition;
+import io.fabric8.kubernetes.api.model.v4_12.PodStatus;
+import io.fabric8.kubernetes.clnt.v4_12.Adapters;
+import io.fabric8.kubernetes.clnt.v4_12.internal.SSLUtils;
+import io.fabric8.openshift.clnt.v4_12.NamespacedOpenShiftClient;
+import io.fabric8.openshift.clnt.v4_12.OpenShiftClient;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.SSLContext;

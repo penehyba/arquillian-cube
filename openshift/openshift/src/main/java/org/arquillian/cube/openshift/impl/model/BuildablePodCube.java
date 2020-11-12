@@ -1,8 +1,8 @@
 package org.arquillian.cube.openshift.impl.model;
 
-import io.fabric8.kubernetes.api.model.v4_10.Container;
-import io.fabric8.kubernetes.api.model.v4_10.ContainerPort;
-import io.fabric8.kubernetes.api.model.v4_10.Pod;
+import io.fabric8.kubernetes.api.model.v4_12.Container;
+import io.fabric8.kubernetes.api.model.v4_12.ContainerPort;
+import io.fabric8.kubernetes.api.model.v4_12.Pod;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.UnknownHostException;

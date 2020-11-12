@@ -3,7 +3,7 @@ package org.arquillian.cube.kubernetes.impl.enricher.internal;
 import java.lang.annotation.Annotation;
 import java.util.Map;
 
-import io.fabric8.kubernetes.api.model.v4_10.apps.DeploymentList;
+import io.fabric8.kubernetes.api.model.v4_12.apps.DeploymentList;
 
 import org.arquillian.cube.kubernetes.impl.enricher.AbstractKubernetesResourceProvider;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -11,7 +11,7 @@ import org.jboss.arquillian.test.spi.enricher.resource.ResourceProvider;
 
 /**
  * A {@link ResourceProvider} for {@link DeploymentList}.
- * It refers to deplotments that have been created during the current session.
+ * It refers to deployments that have been created during the current session.
  */
 public class DeploymentListResourceProvider extends AbstractKubernetesResourceProvider {
 

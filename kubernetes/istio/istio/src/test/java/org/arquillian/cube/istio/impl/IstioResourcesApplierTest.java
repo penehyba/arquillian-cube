@@ -1,6 +1,7 @@
 package org.arquillian.cube.istio.impl;
 
-import io.fabric8.kubernetes.api.model.v4_10.ObjectMeta;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.api.model.v4_12.ObjectMeta;
 import java.io.InputStream;
 import java.util.Arrays;
 import me.snowdrop.istio.api.IstioResource;
@@ -145,11 +146,11 @@ public class IstioResourcesApplierTest {
 
     private IstioResourcesApplier createIstioResourceApplier() {
 
-        when(istioResource.getMetadata()).thenReturn(meta);
+        when(((HasMetadata)istioResource).getMetadata()).thenReturn(meta);
         when(meta.getName()).thenReturn("recommendation");
         when(meta.getNamespace()).thenReturn("tutorial");
 
-        when(istioResource2.getMetadata()).thenReturn(meta2);
+        when(((HasMetadata)istioResource2).getMetadata()).thenReturn(meta2);
         when(meta2.getName()).thenReturn("different");
         when(meta2.getNamespace()).thenReturn("tutorial");
 

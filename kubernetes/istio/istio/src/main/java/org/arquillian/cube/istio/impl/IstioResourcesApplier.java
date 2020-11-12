@@ -1,6 +1,7 @@
 package org.arquillian.cube.istio.impl;
 
-import io.fabric8.kubernetes.api.model.v4_10.ObjectMeta;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.api.model.v4_12.ObjectMeta;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -101,7 +102,7 @@ public class IstioResourcesApplier {
             for (me.snowdrop.istio.api.IstioResource resource : istioResources) {
 
                 // If no restore or an Istio Resource has not been restored then we need to delete
-                if(!restoredResourcesMap.containsKey(resourceKey) || !restored(resourceKey, resource.getMetadata())) {
+                if(!restoredResourcesMap.containsKey(resourceKey) || !restored(resourceKey, ((HasMetadata)resource).getMetadata())) {
                     istioClient.unregisterCustomResource(resource);
                 }
             }
@@ -115,7 +116,7 @@ public class IstioResourcesApplier {
         final List<me.snowdrop.istio.api.IstioResource> listRestoredIstioResources = restoredResourcesMap.get(resourceKey);
 
         for (me.snowdrop.istio.api.IstioResource restoredIstioResources : listRestoredIstioResources) {
-            final ObjectMeta restoredMetadata = restoredIstioResources.getMetadata();
+            final ObjectMeta restoredMetadata = ((HasMetadata)restoredIstioResources).getMetadata();
             if (restoredMetadata.getName().equals(istioResourceToDelete.getName())
                 && restoredMetadata.getNamespace().equals(istioResourceToDelete.getNamespace())) {
                 return true;

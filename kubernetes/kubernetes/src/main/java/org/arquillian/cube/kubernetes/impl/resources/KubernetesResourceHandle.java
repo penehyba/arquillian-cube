@@ -1,7 +1,7 @@
 package org.arquillian.cube.kubernetes.impl.resources;
 
-import io.fabric8.kubernetes.api.model.v4_10.HasMetadata;
-import io.fabric8.kubernetes.clnt.v4_10.KubernetesClient;
+import io.fabric8.kubernetes.api.model.v4_12.HasMetadata;
+import io.fabric8.kubernetes.clnt.v4_12.KubernetesClient;
 
 import java.io.InputStream;
 import java.util.List;

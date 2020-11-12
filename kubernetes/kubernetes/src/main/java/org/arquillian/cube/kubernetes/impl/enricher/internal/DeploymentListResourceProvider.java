@@ -24,9 +24,9 @@ public class DeploymentListResourceProvider extends AbstractKubernetesResourcePr
     public Object lookup(ArquillianResource resource, Annotation... qualifiers) {
         Map<String, String> labels = getLabels(qualifiers);
         if (labels.isEmpty()) {
-            return getClient().extensions().deployments().inNamespace(getSession().getNamespace()).list();
+            return getClient().apps().deployments().inNamespace(getSession().getNamespace()).list();
         } else {
-            return getClient().extensions().deployments().inNamespace(getSession().getNamespace()).withLabels(labels).list();
+            return getClient().apps().deployments().inNamespace(getSession().getNamespace()).withLabels(labels).list();
         }
     }
 }

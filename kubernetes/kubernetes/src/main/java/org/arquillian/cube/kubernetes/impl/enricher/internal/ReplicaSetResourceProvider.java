@@ -35,7 +35,7 @@ public class ReplicaSetResourceProvider extends AbstractKubernetesResourceProvid
 
         // Gets the first replica set found that matches the labels.
         Map<String, String> labels = getLabels(qualifiers);
-        ReplicaSetList list = getClient().extensions().replicaSets().inNamespace(namespace).withLabels(labels).list();
+        ReplicaSetList list = getClient().apps().replicaSets().inNamespace(namespace).withLabels(labels).list();
         List<ReplicaSet> replicaSets = list.getItems();
         if( !replicaSets.isEmpty() ) {
             return replicaSets.get(0);

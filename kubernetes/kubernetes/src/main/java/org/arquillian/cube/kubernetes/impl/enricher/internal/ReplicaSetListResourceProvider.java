@@ -24,9 +24,9 @@ public class ReplicaSetListResourceProvider extends AbstractKubernetesResourcePr
     public Object lookup(ArquillianResource resource, Annotation... qualifiers) {
         Map<String, String> labels = getLabels(qualifiers);
         if (labels.isEmpty()) {
-            return getClient().extensions().replicaSets().inNamespace(getSession().getNamespace()).list();
+            return getClient().apps().replicaSets().inNamespace(getSession().getNamespace()).list();
         } else {
-            return getClient().extensions().replicaSets().inNamespace(getSession().getNamespace()).withLabels(labels).list();
+            return getClient().apps().replicaSets().inNamespace(getSession().getNamespace()).withLabels(labels).list();
         }
     }
 }

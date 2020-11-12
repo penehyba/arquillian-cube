@@ -268,7 +268,7 @@ public class SessionManager implements SessionCreatedListener {
 
     @Override
     public void display() {
-        ReplicaSetList replicaSetList = client.extensions().replicaSets().inNamespace(session.getNamespace()).list();
+        ReplicaSetList replicaSetList = client.apps().replicaSets().inNamespace(session.getNamespace()).list();
         if (replicaSetList.getItems() != null) {
             for (ReplicaSet replicaSet : replicaSetList.getItems()) {
                 session.getLogger().info("ReplicaSet: [" + replicaSet.getMetadata().getName() + "]");

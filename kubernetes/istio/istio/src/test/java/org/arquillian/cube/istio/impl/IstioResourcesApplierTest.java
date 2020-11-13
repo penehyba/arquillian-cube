@@ -146,11 +146,11 @@ public class IstioResourcesApplierTest {
 
     private IstioResourcesApplier createIstioResourceApplier() {
 
-        when(((HasMetadata)istioResource).getMetadata()).thenReturn(meta);
+        when(((io.fabric8.kubernetes.api.model.v4_12.HasMetadata)istioResource).getMetadata()).thenReturn(meta);
         when(meta.getName()).thenReturn("recommendation");
         when(meta.getNamespace()).thenReturn("tutorial");
 
-        when(((HasMetadata)istioResource2).getMetadata()).thenReturn(meta2);
+        when(((io.fabric8.kubernetes.api.model.v4_12.HasMetadata)istioResource2).getMetadata()).thenReturn(meta2);
         when(meta2.getName()).thenReturn("different");
         when(meta2.getNamespace()).thenReturn("tutorial");
 

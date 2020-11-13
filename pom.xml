@@ -95,7 +95,7 @@
     <version.fast-classpath-scanner>2.9.3</version.fast-classpath-scanner>
     <!-- Empty property for failsafe groups to avoid conflict with maven-javadoc-plugin's groups -->
     <failsafe.groups />
-    <version.istio>1.6.5-Beta6</version.istio>
+    <version.istio>1.7.3-Alpha2</version.istio>
     <version.awaitility>4.0.1</version.awaitility>
     <version.junit5>5.4.2</version.junit5>
   </properties>

@@ -28,8 +28,8 @@ public class IstioResourcesApplier {
 
     private static final Logger log = Logger.getLogger(KubernetesResourcesApplier.class.getName());
 
-    private Map<String, List<me.snowdrop.istio.api.IstioResource>> resourcesMap = new ConcurrentHashMap<>();
-    private Map<String, List<me.snowdrop.istio.api.IstioResource>> restoredResourcesMap = new ConcurrentHashMap<>();
+    private Map<String, List<? extends HasMetadata>> resourcesMap = new ConcurrentHashMap<>();
+    private Map<String, List<? extends HasMetadata>> restoredResourcesMap = new ConcurrentHashMap<>();
 
     public void applyIstioResourcesAtClassScope(@Observes(precedence = -20) BeforeClass beforeClass, final IstioClient istioClient) {
         final TestClass testClass = beforeClass.getTestClass();
@@ -102,7 +102,7 @@ public class IstioResourcesApplier {
             for (me.snowdrop.istio.api.IstioResource resource : istioResources) {
 
                 // If no restore or an Istio Resource has not been restored then we need to delete
-                if(!restoredResourcesMap.containsKey(resourceKey) || !restored(resourceKey, ((HasMetadata)resource).getMetadata())) {
+                if(!restoredResourcesMap.containsKey(resourceKey) || !restored(resourceKey, ((io.fabric8.kubernetes.api.model.v4_12.HasMetadata)resource).getMetadata())) {
                     istioClient.unregisterCustomResource(resource);
                 }
             }
@@ -113,10 +113,10 @@ public class IstioResourcesApplier {
     }
 
     private boolean restored(String resourceKey, ObjectMeta istioResourceToDelete) {
-        final List<me.snowdrop.istio.api.IstioResource> listRestoredIstioResources = restoredResourcesMap.get(resourceKey);
+        final List<? extends HasMetadata> listRestoredIstioResources = restoredResourcesMap.get(resourceKey);
 
         for (me.snowdrop.istio.api.IstioResource restoredIstioResources : listRestoredIstioResources) {
-            final ObjectMeta restoredMetadata = ((HasMetadata)restoredIstioResources).getMetadata();
+            final ObjectMeta restoredMetadata = ((io.fabric8.kubernetes.api.model.v4_12.HasMetadata)restoredIstioResources).getMetadata();
             if (restoredMetadata.getName().equals(istioResourceToDelete.getName())
                 && restoredMetadata.getNamespace().equals(istioResourceToDelete.getNamespace())) {
                 return true;

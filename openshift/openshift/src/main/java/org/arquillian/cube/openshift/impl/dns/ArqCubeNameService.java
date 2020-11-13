@@ -1,7 +1,7 @@
 package org.arquillian.cube.openshift.impl.dns;
 
 import io.fabric8.openshift.api.model.v4_12.RouteList;
-//import sun.net.spi.nameservice.NameService;
+import sun.net.spi.nameservice.NameService;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -15,7 +15,7 @@ import java.util.Set;
  * @author Rob Cernich
  * @author fspolti
  */
-public class ArqCubeNameService {//implements NameService {
+public class ArqCubeNameService implements NameService {
 
     private static final Set<String> hosts = new HashSet<>();
     private static InetAddress routerAddr;
@@ -37,7 +37,7 @@ public class ArqCubeNameService {//implements NameService {
         }
     }
 
-//    @Override
+    @Override
     public InetAddress[] lookupAllHostAddr(String host) throws UnknownHostException {
         synchronized (hosts) {
             if (routerAddr != null && hosts.contains(host)) {
@@ -47,7 +47,7 @@ public class ArqCubeNameService {//implements NameService {
         }
     }
 
-//    @Override
+    @Override
     public String getHostByAddr(byte[] addr) throws UnknownHostException {
         throw new UnknownHostException();
     }

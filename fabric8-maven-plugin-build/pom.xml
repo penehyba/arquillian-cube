@@ -35,9 +35,7 @@
   </dependency>
   <dependency>
     <groupId>io.fabric8</groupId>
-<!--    <groupId>org.eclipse.jkube</groupId>-->
     <artifactId>kubernetes-client</artifactId>
-<!--    <artifactId>openshift-client</artifactId>-->
     <scope>test</scope>
   </dependency>
 </dependencies>

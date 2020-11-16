@@ -7,6 +7,7 @@ import org.arquillian.cube.kubernetes.impl.KubernetesAssistant;
 import org.arquillian.cube.kubernetes.impl.requirement.RequiresKubernetes;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;
 import org.jboss.arquillian.test.api.ArquillianResource;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -30,6 +31,7 @@ public class HelloWorldKubernetesAssistantTest {
     }
 
     @Test
+    //@Ignore
     public void should_apply_route_programmatically() throws IOException {
         kubernetesAssistant.deployApplication("hello-world");                           // <1>
         Optional<URL> serviceUrl = kubernetesAssistant.getServiceUrl("hello-world");    // <2>

@@ -14,6 +14,7 @@ import io.undertow.protocols.spdy.SpdyChannel;
 import io.undertow.protocols.spdy.SpdyChannelWithoutFlowControl;
 import io.undertow.server.XnioByteBufferPool;
 import io.undertow.util.Headers;
+import io.undertow.util.HttpString;
 import io.undertow.util.Methods;
 import io.undertow.util.StringReadChannelListener;
 import java.io.Closeable;
@@ -104,6 +105,7 @@ public final class PortForwarder implements Closeable {
                 .setPath(portForwardURI.getPath());
             request.getRequestHeaders()
                 .put(Headers.HOST, this.portForwardURI.getHost())
+                .put(new HttpString("X-Stream-Protocol-Version"), "portforward.k8s.io")
                 .put(Headers.CONNECTION, "Upgrade")
                 .put(Headers.UPGRADE, "SPDY/3.1");
             if (config.getOauthToken() != null) {

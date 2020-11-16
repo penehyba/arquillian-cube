@@ -10,12 +10,14 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 @Category({RequiresOpenshift.class, RequiresRemoteResource.class})
 @RequiresOpenshift
+//@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class HelloPodDeploymentOpenShiftITCase {
 
@@ -30,6 +32,7 @@ public class HelloPodDeploymentOpenShiftITCase {
 
     @Test
     public void shouldBeAbleToInjectURL() throws Exception {
+        System.out.println("Base URL: " + base);
         Assert.assertNotNull(base);
     }
 }

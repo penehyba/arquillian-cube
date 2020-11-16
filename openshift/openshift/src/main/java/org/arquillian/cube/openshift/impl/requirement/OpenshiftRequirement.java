@@ -41,7 +41,7 @@ public class OpenshiftRequirement implements Constraint<RequiresOpenshift> {
                 throw new UnsatisfiedRequirementException(
                     "Failed to verify Openshift version, due to: [" + response.message() + "]");
             } else if (!client.isAdaptable(OpenShiftClient.class)) {
-                throw new UnsatisfiedRequirementException("A valid Kubernetes environmnet was found, but not Openshift.");
+                throw new UnsatisfiedRequirementException("A valid Kubernetes environment was found, but not Openshift.");
             }
         } catch (IOException e) {
             throw new UnsatisfiedRequirementException("Error while checking Openshift version: [" + e.getMessage() + "]");

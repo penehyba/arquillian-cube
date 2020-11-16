@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import io.fabric8.kubernetes.client.DefaultKubernetesClient;
 import io.fabric8.kubernetes.client.KubernetesClient;
@@ -55,10 +58,11 @@ public class ResourceGeneratorBuilderIT {
 
         // then
         final File resources = Paths.get(rootPath, "target/classes/META-INF/fabric8").toFile();
-        //TODO add jkube
         final File build = Paths.get(rootPath, "target/docker").toFile();
 
         assertThat(resources.listFiles()).isNotEmpty();
+        System.out.println("Resources include files: ");
+        Arrays.stream(Objects.requireNonNull(resources.listFiles())).forEach(System.out::println);
         assertThat(resources.listFiles()).contains(Paths.get(resources.toString(), "kubernetes.json").toFile(), Paths.get(
             resources.toString(), "openshift.json").toFile());
         assertThat(build.listFiles()).isNotEmpty();

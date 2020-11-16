@@ -22,7 +22,11 @@ import static org.assertj.core.api.Assumptions.assumeThat;
 @RunWith(ArquillianConditionalRunner.class)
 public class HelloWorldIT {
 
+    private static final String OPENSHIFT_JSON = getResource("openshift.json");
+
     private static CommandExecutor commandExecutor = new CommandExecutor();
+
+    private static boolean isTested = false;
 
     private String ocVersion;
 
@@ -30,6 +34,7 @@ public class HelloWorldIT {
     public void getOpenshiftVersion() {
         final List<String> output = commandExecutor.execCommand("oc version");
         ocVersion = output.get(0);
+        System.out.println("OC Version is: " + ocVersion);
     }
 
     @Test
@@ -48,7 +53,8 @@ public class HelloWorldIT {
     public void should_be_able_deploy_resources_using_oc_3_11() {
         // given
         assumeThat(ocVersion).contains("v3.11");
-        String commandToExecute = "oc create -f " + getResource("openshift.json");
+        isTested = true;
+        String commandToExecute = "oc create -f " + OPENSHIFT_JSON;
 
         // when
         final List<String> resources = commandExecutor.execCommand(commandToExecute);
@@ -61,7 +67,8 @@ public class HelloWorldIT {
     public void should_be_able_deploy_resources_using_oc_3_9() {
         // given
         assumeThat(ocVersion).contains("v3.9");
-        String commandToExecute = "oc create -f " + getResource("openshift.json");
+        isTested = true;
+        String commandToExecute = "oc create -f " + OPENSHIFT_JSON;
 
         // when
         final List<String> resources = commandExecutor.execCommand(commandToExecute);
@@ -72,8 +79,10 @@ public class HelloWorldIT {
 
     @AfterClass
     public static void deleteDeployment() {
-        String commandToExecute = "oc delete -f " + getResource("openshift.json");
-        commandExecutor.execCommand(commandToExecute);
+        if (isTested) {
+            String commandToExecute = "oc delete -f " + OPENSHIFT_JSON;
+            commandExecutor.execCommand(commandToExecute);
+        }
     }
 
     private static String getResource(String resourceName) {

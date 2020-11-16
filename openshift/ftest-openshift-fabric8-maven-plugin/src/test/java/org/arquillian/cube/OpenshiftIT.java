@@ -8,6 +8,7 @@ import org.arquillian.cube.openshift.impl.requirement.RequiresOpenshift;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -19,6 +20,7 @@ import static io.restassured.RestAssured.given;
 
 @Category(RequiresOpenshift.class)
 @RequiresOpenshift
+@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class OpenshiftIT {
 

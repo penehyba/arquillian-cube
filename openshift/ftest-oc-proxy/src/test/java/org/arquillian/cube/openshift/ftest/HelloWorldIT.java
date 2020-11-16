@@ -9,6 +9,7 @@ import org.arquillian.cube.openshift.impl.requirement.RequiresOpenshift;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -24,12 +25,13 @@ public class HelloWorldIT {
 
     private static CommandExecutor commandExecutor = new CommandExecutor();
 
-    private String ocVersion;
+    private static String ocVersion;
 
-    @Before
-    public void getOpenshiftVersion() {
+    @BeforeClass
+    public static void getOpenshiftVersion() {
         final List<String> output = commandExecutor.execCommand("oc version");
         ocVersion = output.get(0);
+        System.out.println("OC Version is: " + ocVersion);
     }
 
     @Test
@@ -72,8 +74,10 @@ public class HelloWorldIT {
 
     @AfterClass
     public static void deleteDeployment() {
-        String commandToExecute = "oc delete -f " + getResource("openshift.json");
-        commandExecutor.execCommand(commandToExecute);
+        if (ocVersion.contains("v3.9") || ocVersion.contains("v3.11")) {
+            String commandToExecute = "oc delete -f " + getResource("openshift.json");
+            commandExecutor.execCommand(commandToExecute);
+        }
     }
 
     private static String getResource(String resourceName) {

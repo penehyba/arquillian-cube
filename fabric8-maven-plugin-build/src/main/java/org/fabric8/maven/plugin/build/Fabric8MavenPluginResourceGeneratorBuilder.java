@@ -101,7 +101,7 @@ public class Fabric8MavenPluginResourceGeneratorBuilder {
             .setDebug(mvnDebugOutput)
             .setDebugLoggerLevel()
             .setGoals(goals)
-            .addProperty("fabric8.namespace", namespace);
+            .addProperty("jkube.namespace", namespace);
 
         // TODO: https://github.com/arquillian/arquillian-cube/issues/1017
         if (System.getenv("JAVA_HOME") == null) {

@@ -9,6 +9,7 @@ import org.arquillian.cube.kubernetes.annotations.PortForward;
 import org.arquillian.cube.kubernetes.impl.requirement.RequiresKubernetes;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;
 import org.jboss.arquillian.test.api.ArquillianResource;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -20,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 @Category(RequiresKubernetes.class)
 @RequiresKubernetes
+@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class HelloWorldIT {
 

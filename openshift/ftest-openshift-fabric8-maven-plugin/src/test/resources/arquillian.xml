@@ -6,6 +6,7 @@
     <property name="app.name">arquillian-cube-openshift-fmp-ftest</property>
     <property name="env.init.enabled">true</property>
     <property name="cube.fmp.build">true</property>
+<!--    <property name="cube.jkube.build">true</property>-->
     <property name="enableImageStreamDetection">false</property>
   </extension>
 

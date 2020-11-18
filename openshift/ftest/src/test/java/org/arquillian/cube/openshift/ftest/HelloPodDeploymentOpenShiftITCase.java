@@ -26,13 +26,14 @@ public class HelloPodDeploymentOpenShiftITCase {
 
     @Deployment(testable = false)
     public static WebArchive deploy() {
+        System.out.println("HelloPodDeploymentOpenShiftITCase deploying...");
         return ShrinkWrap.create(WebArchive.class)
             .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
     @Test
     public void shouldBeAbleToInjectURL() throws Exception {
-        System.out.println("Base URL: " + base);
+        System.out.println(this.getClass() + "Base URL: " + base);
         Assert.assertNotNull(base);
     }
 }

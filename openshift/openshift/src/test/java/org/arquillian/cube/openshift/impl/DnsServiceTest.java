@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-//@Ignore
+@Ignore
 public class DnsServiceTest {
 
     private static String ROUTER_HOST = "127.0.0.1";

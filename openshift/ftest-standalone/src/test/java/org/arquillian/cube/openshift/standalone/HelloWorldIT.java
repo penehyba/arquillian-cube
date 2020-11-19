@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Category(RequiresOpenshift.class)
 @RequiresOpenshift
 @RunWith(ArquillianConditionalRunner.class)
-//@Ignore
+@Ignore
 public class HelloWorldIT {
 
     @Named("hello-openshift-service")

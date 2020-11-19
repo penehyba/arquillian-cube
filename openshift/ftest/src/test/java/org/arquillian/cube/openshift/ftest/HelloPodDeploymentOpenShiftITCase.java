@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 
 @Category({RequiresOpenshift.class, RequiresRemoteResource.class})
 @RequiresOpenshift
-//@Ignore
+@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class HelloPodDeploymentOpenShiftITCase {
 

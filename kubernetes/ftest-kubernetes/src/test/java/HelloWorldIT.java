@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 @Category(RequiresKubernetes.class)
 @RequiresKubernetes
-//@Ignore
+@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class HelloWorldIT {
 

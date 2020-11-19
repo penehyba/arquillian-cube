@@ -9,6 +9,7 @@ import org.arquillian.cube.openshift.impl.requirement.RequiresOpenshift;
 import org.arquillian.cube.requirement.ArquillianConditionalRunner;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -38,6 +39,7 @@ public class HelloWorldIT {
     }
 
     @Test
+    @Ignore
     public void should_be_able_get_namespace_using_kubectl() {
         // when
         final List<String> output = commandExecutor.execCommand("kubectl get ns -o jsonpath='{..name}'");

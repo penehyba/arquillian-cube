@@ -139,13 +139,13 @@ public class DefaultNamespaceService implements NamespaceService {
         }
 
         @Override
-        public Boolean delete(String namespace) {
-            logger.info("Deleting namespace: " + namespace + "...");
-            Boolean deleted = client.namespaces().withName(namespace).delete();
-            if (deleted) {
-                logger.info("Namespace: " + namespace + ", successfully deleted");
-            }
-            return deleted;
+        public Boolean delete(String namespace) { //TODO PN
+            logger.info("Deleting namespace: " + namespace + "...SWITCHED OFF");
+//            Boolean deleted = client.namespaces().withName(namespace).delete();
+//            if (deleted) {
+//                logger.info("Namespace: " + namespace + ", successfully deleted");
+//            }
+            return true;//deleted;
         }
 
         @Override
@@ -155,45 +155,47 @@ public class DefaultNamespaceService implements NamespaceService {
 
         @Override
         @Deprecated // The method is redundant (since its called always before destroy).
-        public void clean(String namespace) {
-            KubernetesClient client = this.client;
-            client.extensions().deployments().inNamespace(namespace).delete();
-            client.extensions().replicaSets().inNamespace(namespace).delete();
-            client.replicationControllers().inNamespace(namespace).delete();
-            client.pods().inNamespace(namespace).delete();
-            client.extensions().ingresses().inNamespace(namespace).delete();
-            client.services().inNamespace(namespace).delete();
-            if (client.isAdaptable(OpenShiftClient.class)) {
-                client.adapt(OpenShiftClient.class)
-                      .securityContextConstraints().withName(namespace).delete();
-            }
+        public void clean(String namespace) {//TODO PN
+            logger.info("Clean namespace SWITCHED OFF");
+//            KubernetesClient client = this.client;
+//            client.extensions().deployments().inNamespace(namespace).delete();
+//            client.extensions().replicaSets().inNamespace(namespace).delete();
+//            client.replicationControllers().inNamespace(namespace).delete();
+//            client.pods().inNamespace(namespace).delete();
+//            client.extensions().ingresses().inNamespace(namespace).delete();
+//            client.services().inNamespace(namespace).delete();
+//            if (client.isAdaptable(OpenShiftClient.class)) {
+//                client.adapt(OpenShiftClient.class)
+//                      .securityContextConstraints().withName(namespace).delete();
+//            }
         }
 
-        public void destroy(String namespace) {
-            Logger logger = this.logger;
-            Configuration configuration = this.configuration;
-            try {
-                if (configuration.isNamespaceDestroyConfirmationEnabled()) {
-                    logger.info("Waiting to destroy the namespace.");
-                    logger.info("Please press <enter> to cleanup the namespace.");
-
-                    Scanner scanner = new Scanner(System.in);
-                    scanner.nextLine();
-                    logger.info("Cleaning up...");
-                } else {
-                    long timeout = configuration.getNamespaceDestroyTimeout();
-                    if (timeout > 0L) {
-                        logger.info("Waiting for " + timeout + " seconds before destroying the namespace");
-                        try {
-                            Thread.sleep(timeout * 1000);
-                        } catch (InterruptedException e) {
-                            logger.info("Interrupted waiting to GC the namespace: " + e);
-                        }
-                    }
-                }
-            } finally {
-                delete(namespace);
-            }
+        public void destroy(String namespace) {//TODO PN
+            logger.info("Destroy namespace SWITCHED OFF");
+//            Logger logger = this.logger;
+//            Configuration configuration = this.configuration;
+//            try {
+//                if (configuration.isNamespaceDestroyConfirmationEnabled()) {
+//                    logger.info("Waiting to destroy the namespace.");
+//                    logger.info("Please press <enter> to cleanup the namespace.");
+//
+//                    Scanner scanner = new Scanner(System.in);
+//                    scanner.nextLine();
+//                    logger.info("Cleaning up...");
+//                } else {
+//                    long timeout = configuration.getNamespaceDestroyTimeout();
+//                    if (timeout > 0L) {
+//                        logger.info("Waiting for " + timeout + " seconds before destroying the namespace");
+//                        try {
+//                            Thread.sleep(timeout * 1000);
+//                        } catch (InterruptedException e) {
+//                            logger.info("Interrupted waiting to GC the namespace: " + e);
+//                        }
+//                    }
+//                }
+//            } finally {
+//                delete(namespace);
+//            }
         }
 
         @Override

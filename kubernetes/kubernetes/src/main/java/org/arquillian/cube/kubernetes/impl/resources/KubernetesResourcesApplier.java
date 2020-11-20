@@ -52,18 +52,18 @@ public class KubernetesResourcesApplier {
     public void removeKubernetesResourcesAtClassScope(@Observes(precedence = -10) AfterClass afterClass, final KubernetesClient kubernetesClient) {
         final TestClass testClass = afterClass.getTestClass();
 
-        log.info(String.format("Deleting environment for %s", testClass.getName()));
-
-        deleteResources(testClass.getJavaClass().getName(), kubernetesClient);
+        log.info(String.format("Deleting environment for %s + \" SWITCHED OFF\"", testClass.getName()));
+// TODO PN
+//        deleteResources(testClass.getJavaClass().getName(), kubernetesClient);
     }
 
     public void removeKubernetesResourcesAtMethodScope(@Observes(precedence = -10) After afterMethod, final KubernetesClient kubernetesClient) {
         final TestClass testClass = afterMethod.getTestClass();
         final Method testMethod = afterMethod.getTestMethod();
 
-        log.info(String.format("Deleting environment for %s method %s", testClass.getName(), testMethod.getName()));
-
-        deleteResources(createResourceKey(testClass.getJavaClass(), testMethod), kubernetesClient);
+        log.info(String.format("Deleting environment for %s method %s + \" SWITCHED OFF\"", testClass.getName(), testMethod.getName()));
+// TODO PN
+//        deleteResources(createResourceKey(testClass.getJavaClass(), testMethod), kubernetesClient);
     }
 
     private <T> KubernetesResource[] findAnnotations(T type) {

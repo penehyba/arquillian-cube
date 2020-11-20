@@ -31,13 +31,16 @@ public class HelloWorldKubernetesAssistantTest {
     }
 
     @Test
-    @Ignore
+    //@Ignore
     public void should_apply_route_programmatically() throws IOException {
         kubernetesAssistant.deployApplication("hello-world");                           // <1>
+        System.out.println("First service url: " + kubernetesAssistant.getServiceUrl());
         Optional<URL> serviceUrl = kubernetesAssistant.getServiceUrl("hello-world");    // <2>
 
         OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder().get().url(serviceUrl.get()).build();
+        final URL url = serviceUrl.get();
+        System.out.println("URL: " + url);
+        Request request = new Request.Builder().get().url(url).build();
         Response response = okHttpClient.newCall(request).execute();
 
         assertThat(response).isNotNull();

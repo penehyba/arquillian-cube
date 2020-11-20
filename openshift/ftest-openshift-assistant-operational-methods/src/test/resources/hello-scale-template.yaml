@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: "helloworld"
-          image: "openshift/hello-openshift:v3.11.0"
+          image: "openshift/hello-openshift:v3.6.0"
           ports:
             - containerPort: 8080
               protocol: "TCP"

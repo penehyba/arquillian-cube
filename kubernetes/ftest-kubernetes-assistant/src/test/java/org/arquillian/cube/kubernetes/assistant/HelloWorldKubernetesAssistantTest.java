@@ -27,7 +27,9 @@ public class HelloWorldKubernetesAssistantTest {
 
     @Test
     public void should_inject_kubernetes_assistant() {
+
         assertThat(kubernetesAssistant).isNotNull();
+        System.out.println(kubernetesAssistant.getServiceUrl());
     }
 
     @Test

@@ -20,7 +20,6 @@ import static io.restassured.RestAssured.given;
 
 @Category(RequiresOpenshift.class)
 @RequiresOpenshift
-@Ignore
 @RunWith(ArquillianConditionalRunner.class)
 public class OpenshiftIT {
 

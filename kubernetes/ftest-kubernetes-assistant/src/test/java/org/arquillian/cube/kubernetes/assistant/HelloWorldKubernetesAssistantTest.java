@@ -31,7 +31,7 @@ public class HelloWorldKubernetesAssistantTest {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void should_apply_route_programmatically() throws IOException {
         kubernetesAssistant.deployApplication("hello-world");                           // <1>
         System.out.println("First service url: " + kubernetesAssistant.getServiceUrl());

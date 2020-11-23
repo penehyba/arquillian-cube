@@ -17,7 +17,7 @@
 <!--    <version.spring.boot>2.1.4.RELEASE</version.spring.boot>-->
 <!--    <version.spring.boot>2.4.0</version.spring.boot>-->
     <version.spring.boot>2.3.5.RELEASE</version.spring.boot>
-    <version.fabric8.maven.plugin>4.1.0</version.fabric8.maven.plugin>
+    <version.fabric8.maven.plugin>3.5.42</version.fabric8.maven.plugin>
 <!--    <jkube.version>1.0.0</jkube.version>-->
   </properties>
 

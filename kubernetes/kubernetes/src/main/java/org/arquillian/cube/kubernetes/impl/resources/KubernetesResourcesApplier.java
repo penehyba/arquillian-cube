@@ -52,8 +52,8 @@ public class KubernetesResourcesApplier {
     public void removeKubernetesResourcesAtClassScope(@Observes(precedence = -10) AfterClass afterClass, final KubernetesClient kubernetesClient) {
         final TestClass testClass = afterClass.getTestClass();
 
-        log.info(String.format("Deleting environment for %s + \" SWITCHED OFF\"", testClass.getName()));
-// TODO PN
+        log.info(String.format("Deleting environment for %s + \" SWITCHED_OFF\"", testClass.getName())); //TODO PN
+
 //        deleteResources(testClass.getJavaClass().getName(), kubernetesClient);
     }
 
@@ -61,8 +61,8 @@ public class KubernetesResourcesApplier {
         final TestClass testClass = afterMethod.getTestClass();
         final Method testMethod = afterMethod.getTestMethod();
 
-        log.info(String.format("Deleting environment for %s method %s + \" SWITCHED OFF\"", testClass.getName(), testMethod.getName()));
-// TODO PN
+        log.info(String.format("Deleting environment for %s method %s + \" SWITCHED_OFF\"", testClass.getName(), testMethod.getName())); //TODO PN
+
 //        deleteResources(createResourceKey(testClass.getJavaClass(), testMethod), kubernetesClient);
     }
 

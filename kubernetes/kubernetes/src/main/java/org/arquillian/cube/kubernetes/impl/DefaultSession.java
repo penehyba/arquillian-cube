@@ -35,16 +35,16 @@ public class DefaultSession implements Session {
     }
 
     void destroy() {
-        logger.status("Destroying Session:" + id);
+        logger.status("Destroying Session:" + id + " SWITCHED_OFF"); // TODO PN
         System.out.flush();
 
-        for (SessionListener listener : listeners) {
-            try {
-                listener.onClose();
-            } catch (Throwable t) {
-                logger.warn("Error calling session listener: [" + listener + "]");
-            }
-        }
+//        for (SessionListener listener : listeners) {
+//            try {
+//                listener.onClose();
+//            } catch (Throwable t) {
+//                logger.warn("Error calling session listener: [" + listener + "]");
+//            }
+//        }
     }
 
     public String getId() {

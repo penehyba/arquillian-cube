@@ -139,8 +139,8 @@ public class DefaultNamespaceService implements NamespaceService {
         }
 
         @Override
-        public Boolean delete(String namespace) { //TODO PN
-            logger.info("Deleting namespace: " + namespace + "...SWITCHED OFF");
+        public Boolean delete(String namespace) {
+            logger.info("Deleting namespace: " + namespace + "...SWITCHED_OFF"); //TODO PN
 //            Boolean deleted = client.namespaces().withName(namespace).delete();
 //            if (deleted) {
 //                logger.info("Namespace: " + namespace + ", successfully deleted");
@@ -155,8 +155,8 @@ public class DefaultNamespaceService implements NamespaceService {
 
         @Override
         @Deprecated // The method is redundant (since its called always before destroy).
-        public void clean(String namespace) {//TODO PN
-            logger.info("Clean namespace SWITCHED OFF");
+        public void clean(String namespace) {
+            logger.info("Clean namespace SWITCHED_OFF"); //TODO PN
 //            KubernetesClient client = this.client;
 //            client.extensions().deployments().inNamespace(namespace).delete();
 //            client.extensions().replicaSets().inNamespace(namespace).delete();
@@ -170,8 +170,8 @@ public class DefaultNamespaceService implements NamespaceService {
 //            }
         }
 
-        public void destroy(String namespace) {//TODO PN
-            logger.info("Destroy namespace SWITCHED OFF");
+        public void destroy(String namespace) {
+            logger.info("Destroy namespace SWITCHED_OFF"); //TODO PN
 //            Logger logger = this.logger;
 //            Configuration configuration = this.configuration;
 //            try {
